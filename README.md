@@ -2,7 +2,7 @@ $- Logemy
 -
 ~  WebApp for Logging Journels made using Python &amp; Django
 > Python
->>- Django
+>- Django
 >> 
 >>Server
 >> 
@@ -24,7 +24,7 @@ $- Logemy
 >>
 >- SQLite 3
 >>
->>Migartions
+>>Migrations
 >>
 >>Shells
 >>
