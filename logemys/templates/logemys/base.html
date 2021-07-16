@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Base</title>
+</head>
+<body>
+    <p>
+        <a href="{% url 'logemys:index' %}"> Logemy</a> -
+        <a href="{% url 'logemys:topics' %}">Topics</a>
+    </p>
+    {% block content %} {% endblock content %}
+
+</body>
+</html>

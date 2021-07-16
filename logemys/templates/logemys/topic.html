@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Topic</title>
+</head>
+<body>
+{% extends 'logemys/base.html' %}
+{% block content %}
+    <p>Topic : {{ topic }}</p>
+    <p>Entries : </p>
+    <ul>
+    {% for entry in entries %}
+      <li>
+       <p>{{entry.date_added|date:'M d, Y H:i'}}</p>
+       <p>{{entry.text|linebreaks}}</p>
+    {% empty %}
+      <li>There are no entries for this topic yet.</li>
+    {% endfor %}
+    </ul>
+{% endblock content %}
+</body>
+</html>
