@@ -1,2 +1,2 @@
-# Logemy
-WebApp for Logging Journels made using Python &amp; Django
+$- Logemy
+-  WebApp for Logging Journels made using Python &amp; Django
