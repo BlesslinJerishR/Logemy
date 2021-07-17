@@ -1,4 +1,5 @@
-
-ll_env/share/python-wheels/ipaddr-2.2.0-py2.py3-none-any.whl
-ll_env/lib/python3.8/site-packages/sqlparse/__pycache__/compat.cpython-38.pyc
-.idea/inspectionProfiles/Project_Default.xml
+*.idea
+*.xml
+*.csh
+*.fish
+*ll_env/
