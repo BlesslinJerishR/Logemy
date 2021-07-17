@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+{% extends 'logemys/base.html' %}
+{% block content %}
+    {% if form.errors %}
+        <p>Your username and password didn't match. Please Try again.</p>
+    {% endif%}
+    <form method="post" action="{% url 'users:login' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button name="submit">Log in</button>
+        <input type="hidden" name="next" value="{% url 'logemys:index' %}"/>
+    </form>
+{% endblock content %}
+</body>
+</html>

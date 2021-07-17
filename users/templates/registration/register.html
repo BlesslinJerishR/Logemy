@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+{% extends 'logemys/base.html' %}
+{% block content %}
+    <form method="post" action="{% url 'users:register' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button name="submit">Register</button>
+        <input type="hidden" name="next" value="{% url 'logemys:index' %}"/>
+    </form>
+{% endblock content %}
+</body>
+</html>
