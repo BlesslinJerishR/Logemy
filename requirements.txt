@@ -5,7 +5,7 @@ beautifulsoup4==4.9.3
 bottle==0.12.19
 bottle-websocket==0.2.9
 Django==3.2.5
-django-bootstrap-v5==1.0.4
+django-bootstrap4
 Eel==0.12.4
 future==0.18.2
 gevent==21.1.2
