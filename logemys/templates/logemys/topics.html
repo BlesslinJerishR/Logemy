@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% extends 'logemys/base.html' %}
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +8,7 @@
 </head>
 <body>
 {% block content %}
-    <p>Topics</p>
+    <p style="font-family: 'Roboto;', sans-serif !important; font-size: 22px !important;">TOPICS</p>
     <ul>
         {% for topic in topics %}
             <li>
@@ -17,7 +18,7 @@
             <li>No topics have been added yet.</li>
         {% endfor %}
     </ul>
-    <a href="{% url 'logemys:new_topic' %}">Add a new topic</a>
+    <a href="{% url 'logemys:new_topic' %}"><img src="{% static 'images/add.png' %}" height="28px" width="28px" style="position: absolute; top: 80%; right: 43.5%;"></a>
 {% endblock content%}
 </body>
 </html>

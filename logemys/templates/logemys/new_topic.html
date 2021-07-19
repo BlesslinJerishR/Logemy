@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 {% extends 'logemys/base.html' %}
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>New Topic</title>
+    <link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static 'css/style.css' %}{% endblock %}">
+    <link rel="stylesheet" href="{% static 'boot4/bootstrap-reboot.css' %}">
 </head>
 <body>
 {% block content %}

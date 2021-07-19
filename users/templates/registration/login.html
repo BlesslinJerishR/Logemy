@@ -26,6 +26,7 @@
                 </p>
               </div>
               <div id="right">
+                  <img src="{% static 'images/finger.png' %}" height="35px" width="35px" style="position:relative; left: 47%; top: 13%;">
                 <h1 id="login">LogIn</h1><br>
                   <form role="form" class="form-horizontal" method="post" action="{% url 'users:login' %}">
                       {% csrf_token %}

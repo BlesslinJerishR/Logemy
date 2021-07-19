@@ -28,13 +28,28 @@
   --floating-icon-left: 0;
 }
 
-html {
-  font-size: 62.5%;
-}
-
 html,
 body {
   height: 100%;
+  font-size: 10px;
+}
+
+p {
+    font-size: 22px !important;
+    font-family: "Roboto", sans-serif;
+}
+
+ul {
+  font-size: 18px !important;
+  font-family: "Roboto", sans-serif;
+  color: #000000 !important;
+}
+
+a{
+  text-decoration: none !important;
+  color: #000000 !important;
+  font-size: 18px !important;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
@@ -145,9 +160,9 @@ svg {
   transition: max-height var(--transition-time) var(--transition-timing);
 }
 
-p{
-  font-size: 15px;
-}
+/*p{*/
+/*  font-size: 25px !important;*/
+/*}*/
 
 .dropdown-list-wrapper {
   margin-top: 1rem;

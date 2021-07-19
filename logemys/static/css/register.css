@@ -42,7 +42,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /*background-color: var(--bg-color);*/
   padding: 1.5rem;
   line-height: 1.4;
 }
@@ -253,6 +252,8 @@ li.dropdown-list-item {
   width: 300px;
   border-radius: 8px;
   outline: none;
+  background-color: #000000 !important;
+  color: #ffffff;
 }
 
 #id_password1{
@@ -266,6 +267,8 @@ li.dropdown-list-item {
   width: 300px;
   border-radius: 8px;
   outline: none;
+  background-color: #000000 !important;
+  color: #ffffff;
 }
 
 #id_password2{
@@ -279,6 +282,8 @@ li.dropdown-list-item {
   width: 300px;
   border-radius: 8px;
   outline: none;
+  background-color: #000000 !important;
+  color: #ffffff;
 }
 
 label[for=id_username]{
