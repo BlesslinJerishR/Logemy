@@ -10,6 +10,7 @@ def index(request):
     """The home page for Learning Log."""
     return render(request, 'learning_logs/index.html')
 
+
 def base(request):
     """The Home poge for Logemys"""
     return render(request, 'logemys/base.html')
@@ -87,7 +88,7 @@ def edit_entry(request, entry_id):
     """Editing an existing entry"""
     entry = Entry.objects.get(id=entry_id)
     topic = entry.topic
-    check_owner()
+    check_owner(topic.owner, request.user)
     if request.method != 'POST':
         # Initial request; Pre fill the form with the current entry
         form = EntryForm(instance=entry)
@@ -100,6 +101,7 @@ def edit_entry(request, entry_id):
 
     context = {'entry': entry, 'topic': topic, 'form': form}
     return render(request, 'logemys/edit_entry.html', context)
+
 
 def css(request):
     return render(request, 'base.html')

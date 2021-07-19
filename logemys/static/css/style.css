@@ -34,14 +34,24 @@ body {
   font-size: 10px;
 }
 
+label[for=id_text]{
+  display: none !important;
+}
+
+textarea{
+  font-size: 18px !important;
+  font-family: "Courier New" !important;
+}
+
+
 p {
     font-size: 22px !important;
-    font-family: "Roboto", sans-serif;
 }
 
 ul {
+  list-style-type: none !important;
   font-size: 18px !important;
-  font-family: "Roboto", sans-serif;
+  font-family: "Courier New", Roboto, sans-serif;
   color: #000000 !important;
 }
 

@@ -10,20 +10,20 @@
 </head>
 <body>
 {% block content %}
-    <p>Topic : {{ topic }}</p>
-    <p>Entries : </p>
-    <p>
-        <a href="{% url 'logemys:new_entry' topic.id %}">Add a new entry</a>
-    </p>
+    <p style="color: #00ff00 !important; position: relative; left : -7.9%;border-radius: 8px; background-color: black">&nbsp;&nbsp;{{ topic }}&nbsp;&nbsp;</p>
+    <a href="{% url 'logemys:new_entry' topic.id %}"><img src="{% static 'images/add.png' %}" height="28px" width="28px" style="position: relative; top: -140%; right: -550%;"></a>
+    <p><img src="{% static 'images/log.png' %}" height="55px" width="50px" style="position: relative; left: -300%; top: -30%;"></p>
     <ul>
     {% for entry in entries %}
+        <div class="card mb-3">
         <li>
-            <p>{{entry.date_added|date:'M d, Y H:i'}}</p>
-            <p>{{entry.text|linebreaks}}</p>
-            <p>
-                <a href="{% url 'logemys:edit_entry' entry.id %}">Edit Entry</a>
+            <p class="card-header" style="font-family: 'Courier New' !important;">{{entry.date_added|date:'M d, Y H:i'}}</p>
+            <p style="font-family: 'Courier New' !important;">{{entry.text|linebreaks}}</p>
+            <p class="card-body">
+                <a href="{% url 'logemys:edit_entry' entry.id %}"><img src="{% static 'images/edit.png' %}" height="38px" width="40px" style="position: relative; left: 77%; top: 80%;"></a>
             </p>
         </li>
+        </div>
     {% empty %}
       <li>There are no entries for this topic yet.</li>
     {% endfor %}

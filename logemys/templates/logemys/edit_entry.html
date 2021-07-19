@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 {% extends 'logemys/base.html' %}
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Edit Entry</title>
+    <link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static 'css/style.css' %}{% endblock %}">
 </head>
 <body>
 {% block content %}
-    <p><a href="{% url 'logemys:topic' topic.id %}">{{ topic }}</a></p>
-    <p>Edit entry : </p>
+    <p><a href="{% url 'logemys:topic' topic.id %}" style="background-color: black !important;position: relative;font-size: 22px; left: -90%; border-radius: 6px; color: #00ff00 !important;">&nbsp;&nbsp;{{ topic }}&nbsp;&nbsp;</a></p>
     <form action="{% url 'logemys:edit_entry' entry.id %}" method='post'>
         {% csrf_token %}
-        {{ form.as_p }}
-        <button name="submit">Save changes</button>
+        {{ form }}
+        <br>
+        <br>
+        <button name="submit" style="height: 40px;width: 55px;float: right;background-color: black; color: white; font-size: 18px; border-radius: 8px" onMouseOver="this.style.color='#00FF00'" onMouseOver="this.style.color='#FFFFFF'">Save</button>
     </form>
 {% endblock content %}
 </body>

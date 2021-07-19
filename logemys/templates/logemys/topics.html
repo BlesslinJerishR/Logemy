@@ -8,8 +8,8 @@
 </head>
 <body>
 {% block content %}
-    <p style="font-family: 'Roboto;', sans-serif !important; font-size: 22px !important;">TOPICS</p>
-    <ul>
+    <p style="color: #00ff00 !important; position: relative; left : -9.9%;border-radius: 8px; background-color: black">&nbsp;&nbsp;Topics&nbsp;&nbsp;</p>
+    <ul  style="list-style: none !important;">
         {% for topic in topics %}
             <li>
                 <a href="{% url 'logemys:topic' topic.id %}">{{ topic }}</a>
@@ -18,7 +18,7 @@
             <li>No topics have been added yet.</li>
         {% endfor %}
     </ul>
-    <a href="{% url 'logemys:new_topic' %}"><img src="{% static 'images/add.png' %}" height="28px" width="28px" style="position: absolute; top: 80%; right: 43.5%;"></a>
+    <a href="{% url 'logemys:new_topic' %}"><img src="{% static 'images/add.png' %}" height="28px" width="28px" style="position: absolute; top: 80%; right: 36.5%;"></a>
 {% endblock content%}
 </body>
 </html>
