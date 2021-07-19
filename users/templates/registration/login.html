@@ -1,21 +1,41 @@
 <!DOCTYPE html>
+{% extends 'logemys/base.html' %}
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static 'css/login.css' %}{% endblock %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarpanch&display=swap" rel="stylesheet">
 </head>
 <body>
-{% extends 'logemys/base.html' %}
 {% block content %}
-    {% if form.errors %}
+    {% if form.error %}
         <p>Your username and password didn't match. Please Try again.</p>
-    {% endif%}
-    <form method="post" action="{% url 'users:login' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button name="submit">Log in</button>
-        <input type="hidden" name="next" value="{% url 'logemys:index' %}"/>
-    </form>
+    {% endif %}
+        <form method="post" action="{% url 'users:login' %}">
+<!--            {% csrf_token %}-->
+            <div id="container">
+              <div id="left">
+                  <img src="{% static 'images/hands.png'%}" height="90px" width="100px" id="hand">
+                <h1 id="welcome">Bonjour</h1>
+                <p id="lorem">
+                  Hello Friend .
+                </p>
+              </div>
+              <div id="right">
+                <h1 id="login">LogIn</h1><br>
+                  <form role="form" class="form-horizontal" method="post" action="{% url 'users:login' %}">
+                      {% csrf_token %}
+                    <div class="form-group">
+                            {{form}}
+                        <button name="submit" class="client-info" id="submit" class="access" style="font-family: 'Sarpanch', sans-serif;">Access</button>
+                        <input type="hidden" name="next" value="{% url 'logemys:base' %}"/>
+                        <button class="social" id="google">connect with google</button>
+            </div>
+        </form>
 {% endblock content %}
 </body>
 </html>

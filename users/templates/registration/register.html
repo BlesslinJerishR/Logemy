@@ -1,17 +1,22 @@
 <!DOCTYPE html>
+{% extends 'logemys/base.html' %}
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static 'css/register.css' %}{% endblock %}">
 </head>
 <body>
-{% extends 'logemys/base.html' %}
 {% block content %}
+    <img src="{% static 'images/hands.png' %}" id="log" style="position: absolute; color: black; left: 30%; top: 18px; margin-left: -50px;top: 30%; margin-top: -50px;" alt="Logemy" width="100" height="90" class="d-inline-block align-text-top">&nbsp;
+    <a class="navbar-brand" href="{% url 'logemys:index' %}"  id="log1" style="font-size: 40px; color: black; font-family: 'Tourney'; position: absolute; left: 30%; margin-left: -50px; top: 42%; margin-top: -50px;">Logemy</a>
     <form method="post" action="{% url 'users:register' %}">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button name="submit">Register</button>
-        <input type="hidden" name="next" value="{% url 'logemys:index' %}"/>
+        {{ form }}
+        <img src="{% static 'images/join.png' %}" height="60px" width="65px" id="join">
+        <button name="submit" id="reg">Register</button>
+        <input type="hidden" name="next" value="{% url 'logemys:base' %}"/>
     </form>
 {% endblock content %}
 </body>

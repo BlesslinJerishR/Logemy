@@ -1,0 +1,452 @@
+@import url('https://fonts.googleapis.com/css2?family=Tourney:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+/* Login Form */
+
+#id_username{
+  position: relative;
+  top: -8px;
+  right: -70px;
+  height: 50px;
+  font-size: 15px;
+  width: 330px;
+  border-radius: 8px;
+  caret-color: transparent;
+}
+
+#id_password{
+  caret-color: transparent;
+  position: relative;
+  top: 5px;
+  right: -70px;
+  height: 50px;
+  width: 330px;
+  font-size: 15px;
+  border-radius: 8px;
+}
+
+label[for=id_username]{
+  font-size: 15px;
+  position: relative;
+  top: -15px;
+  left: -60px;
+}
+label[for=id_password]{
+  font-size: 15px;
+  position: relative;
+  top: 0px;
+  left: -60px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+:root {
+  /*--main-color: #fffff;*/
+  --second-color: #00ff00;
+  --box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  --google-color: rgb(220, 74, 61);
+}
+
+html {
+  height: 100%;
+}
+
+#welcome, #login{
+  font-family: 'Tourney';
+}
+
+#container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: transparent !important;
+  width: 1200px;
+  height: 800px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  box-shadow: var(--box-shadow);
+  transition-duration: 1s;
+}
+
+#left, #right {
+  margin: auto;
+  width: 95%;
+  height: 96%;
+  border-radius: 10px;
+}
+
+#left {
+  background-size: cover;
+  background-position: center;
+  box-shadow: var(--box-shadow);
+}
+#welcome, #lorem {
+  margin: 20px;
+  text-shadow: var(--box-shadow);
+}
+#welcome {
+  font-size: 75px;
+  font-weight: 300;
+  margin-top: 330px;
+  text-shadow: var(--box-shadow);
+}
+
+#hand{
+  position: absolute;
+  top: 100px;
+  right: 590px;
+}
+#login {
+  padding-top: 35%;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 100;
+  text-shadow: var(--box-shadow);
+}
+.client-info {
+  display: block;
+  margin: 20px auto;
+  width: 60%;
+  height: 50px;
+  border: solid #999 1px;
+  border-radius: 5px;
+  text-indent: 15px;
+  transition: all 200ms;
+  box-shadow: var(--box-shadow);
+}
+.client-info:focus {
+  width: 80%;
+}
+label {
+  position: absolute;
+  margin: -76px 130px;
+  font-size: 12px;
+  white-space: nowrap;
+  background: #fff;
+  padding: 0 5px;
+  color: #999;
+  transition: all 200ms;
+  text-shadow: var(--box-shadow);
+}
+#email:focus ~ label[for="email"] {
+  margin: -76px 70px;
+}
+#password:focus ~ label[for="password"] {
+  margin: -76px 70px;
+}
+#submit {
+  border: none;
+  background-color: #000000;
+  color: #ffffff;
+  width: 60%;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+.access{
+    font-family: 'Roboto', sans-serif;
+}
+#submit:hover {
+  background-color: #00ff00;
+  font-family: 'Roboto', sans-serif;
+  color: black;
+}
+
+.social {
+  background-color: #fff;
+  display: block;
+  margin: 10px auto;
+  width: 70%;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+  transition-duration: 200ms;
+  box-shadow: var(--box-shadow);
+  text-shadow: var(--box-shadow);
+}
+
+#google {
+  border: solid var(--google-color) 1px;
+  color: var(--google-color);
+}
+#google:hover {
+  background-color: var(--google-color);
+  color: white;
+}
+
+@media (max-width: 1250px) {
+
+  #container {
+    width: 600px;
+    display: block;
+  }
+  #left {
+    display: none;
+  }
+  #right {
+    margin-top: 16px;
+    background-image: url("https://images.unsplash.com/photo-1615400014497-55726234cccb?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTYxNzg4Njg0Ng&ixlib=rb-1.2.1&q=85");
+    background-size: cover;
+    background-position: center;
+    box-shadow: var(--box-shadow);
+  }
+
+}
+
+@media (max-height: 850px) {
+
+  #container {
+    width: 1000px;
+    height: 600px;
+  }
+  #login {
+    padding-top: 20%;
+  }
+  #welcome {
+    margin-top: 240px;
+    font-size: 60px;
+  }
+  #lorem {
+    font-size: 15px;
+  }
+
+}
+
+/*Styles Fucker*/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --text-color: transparent !important;
+  --text-active: #ffffff;
+  --button-hover-bg-color: transparent !important;
+  --border-color: #494d59;
+  --dropdown-height: 0;
+  --rotate-arrow: 0;
+  --translate-value: 0;
+  --list-opacity: 0;
+  --transition-time: 0.4s;
+  --transition-timing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --border-radius: 1.4rem;
+  --list-button-height: 4.6rem;
+  --floating-icon-size: 26;
+  --floating-icon-top: 0;
+  --floating-icon-left: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*background-color: var(--bg-color);*/
+  padding: 1.5rem;
+  line-height: 1.4;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  /*!*background-color: transparent;*!*/
+  outline: none;
+}
+
+svg {
+  display: none !important;
+  height: 1.6rem;
+  width: 1.6rem;
+}
+
+.text-truncate {
+  display: none !important;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.dropdown-container {
+  display: none !important;
+  margin-top: 30vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 34rem;
+}
+
+.dropdown-title-icon,
+.dropdown-arrow {
+  display: none !important;
+  display: inline-flex;
+}
+
+.dropdown-title {
+  display: none !important;
+  margin: 0 auto 0 1.8rem;
+  text-transform: capitalize;
+}
+
+.dropdown-button {
+  display: none !important;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 1.7rem;
+  display: flex;
+  align-items: center;
+  padding: 0 1.8rem;
+}
+
+.dropdown-button svg {
+  display: none !important;
+  transition: all var(--transition-time) var(--transition-timing);
+  fill: #000000;
+}
+
+.dropdown-button svg,
+.dropdown-button span {
+  display: none !important;
+  pointer-events: none;
+}
+
+.dropdown-button:hover,
+.dropdown-button:focus {
+  display: none !important;
+  color: #000000;
+}
+
+.dropdown-button:hover svg,
+.dropdown-button:focus svg {
+  display: none !important;
+  fill: #000000;
+}
+
+.main-button {
+  display: none !important;
+  height: 5.2rem;
+  border-radius: var(--border-radius);
+  color: var(--text-color);
+  background-color: var(--primary-bg-color);
+  border: 0.1rem solid var(--border-color);
+  transition: all var(--transition-time) var(--transition-timing);
+}
+
+.main-button:focus {
+  display: none !important;
+  border: 0.1rem solid var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(44, 98, 246, 0.4);
+}
+
+.main-button .dropdown-arrow {
+  display: none !important;
+  transition: transform var(--transition-time) var(--transition-timing);
+  transform: rotate(var(--rotate-arrow));
+  margin-left: 1.8rem;
+}
+
+.list-button {
+  display: none !important;
+  height: var(--list-button-height);
+  transition: color var(--transition-time) var(--transition-timing);
+  color: var(--text-color);
+  overflow: hidden;
+  cursor: none;
+}
+
+.dropdown-list-container {
+  display: none !important;
+  overflow: hidden;
+  max-height: var(--dropdown-height);
+  transition: max-height var(--transition-time) var(--transition-timing);
+}
+
+.dropdown-list-wrapper {
+  display: none !important;
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: transparent;
+  border: transparent;
+  border-radius: var(--border-radius);
+  /*border: 0.1rem solid var(--border-color);*/
+  position: relative;
+}
+
+ul.dropdown-list {
+  display: none !important;
+  position: relative;
+  list-style-type: none;
+}
+
+ul.dropdown-list::before {
+  display: none !important;
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 0;
+  opacity: 0;
+  height: var(--list-button-height);
+  background-color: var(--button-hover-bg-color);
+  transition: all var(--transition-time) linear;
+  transform: translateY(var(--translate-value));
+  border-radius: var(--border-radius);
+  pointer-events: none;
+}
+ul.dropdown-list:hover::before,
+ul.dropdown-list:hover ~ .floating-icon {
+  display: none !important;
+  opacity: 1;
+}
+
+li.dropdown-list-item {
+  display: none !important;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  opacity: var(--list-opacity);
+  transition: opacity 0.8s var(--transition-timing);
+}
+
+.floating-icon {
+  display: none !important;
+  height: calc(var(--floating-icon-size) * 1px);
+  width: calc(var(--floating-icon-size) * 1px);
+  position: absolute;
+  top: var(--floating-icon-top);
+  left: var(--floating-icon-left);
+  background-color: var(--border-color);
+  border-radius: 1rem;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--transition-time) var(--transition-timing);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.floating-icon svg {
+  display: none !important;
+  fill: var(--text-active);
+}
+
+

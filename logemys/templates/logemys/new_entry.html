@@ -1,11 +1,11 @@
 <!DOCTYPE html>
+{% extends 'logemys/base.html' %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>New Entry</title>
 </head>
 <body>
-{% extends 'logemys/base.html' %}
 {% block content %}
     <p><a href="{% url 'logemys:topic' topic.id%}">{{ topic }}</a> </p>
     <p>Add a new entry : </p>

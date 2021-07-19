@@ -1,20 +1,20 @@
 <!DOCTYPE html>
+{% extends 'logemys/base.html' %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Topics</title>
 </head>
 <body>
-{% extends 'logemys/base.html' %}
 {% block content %}
     <p>Topics</p>
     <ul>
         {% for topic in topics %}
-        <li>
-            <a href="{% url 'logemys:topic' topic.id %}">{{ topic }}</a>
-        </li>
-        {% empty %}
-        <li>No topics have been added yet.</li>
+            <li>
+                <a href="{% url 'logemys:topic' topic.id %}">{{ topic }}</a>
+            </li>
+            {% empty %}
+            <li>No topics have been added yet.</li>
         {% endfor %}
     </ul>
     <a href="{% url 'logemys:new_topic' %}">Add a new topic</a>

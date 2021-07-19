@@ -7,8 +7,12 @@ from django.http import Http404
 
 # Create your views here.
 def index(request):
+    """The home page for Learning Log."""
+    return render(request, 'learning_logs/index.html')
+
+def base(request):
     """The Home poge for Logemys"""
-    return render(request, 'logemys/home.html')
+    return render(request, 'logemys/base.html')
 
 
 def check_owner(owner, user):
