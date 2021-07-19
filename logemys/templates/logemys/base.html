@@ -1,22 +1,207 @@
 <!DOCTYPE html>
+{% load bootstrap4 %}
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Base</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Logemy</title>
+    <link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static 'css/style.css' %}{% endblock %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
 </head>
 <body>
-    <p>
-        <a href="{% url 'logemys:index' %}"> Logemy</a> -
-        <a href="{% url 'logemys:topics' %}">Topics</a> -
-        {% if user.is_authenticated %}
-            Hello, {{ user.username }}
-            <a href="{% url 'users:logout' %}">Log out</a>
-        {% else %}
-            <a href="{% url 'users:register' %}">Register</a> -
-            <a href="{% url 'users:login' %}">Log in</a>
-        {% endif %}
-    </p>
-    {% block content %} {% endblock content %}
+<!--<nav class="navbar navbar-inverse">-->
+<!--  <div class="container-fluid">-->
+<!--        <div class="navbar-header">-->
+<!--            <button type="button" class="navbar-toggle visible-xs-block pull-right" data-toggle="collapse" data-target="#myNavbar">-->
+<!--                <span class="icon-bar"></span>-->
+<!--                <span class="icon-bar"></span>-->
+<!--                <span class="icon-bar"></span>-->
+<!--            </button>-->
+<!--            -->
+<!--        </div>-->
+<!--    <div class="collapse navbar-collapse" id="myNavbar">-->
+<!--         <ul class="nav navbar-nav">-->
+<!--            <li><a href="#">Log</a></li>-->
+<!--            <li class="dropdown">-->
+<!--                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>-->
 
+<!--            </ul>
+<!--          <ul class="nav navbar-nav navbar-right">
+<!--            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
+<!--            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>-->
+<!--          </ul>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</nav>-->
+
+<!--&lt;!&ndash;&ndash;&gt;-->
+<!--<div class="dropdown-container">-->
+<!--  <button class="dropdown-button main-button">-->
+<!--    <span class="dropdown-title-icon">-->
+<!--      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">-->
+<!--        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />-->
+<!--      </svg>-->
+<!--    </span>-->
+<!--    <span class="dropdown-title text-truncate">Facebook</span>-->
+<!--    <span class="dropdown-arrow">-->
+<!--      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">-->
+<!--        <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />-->
+<!--      </svg>-->
+<!--    </span>-->
+<!--  </button>-->
+<!--  <div class="dropdown-list-container">-->
+<!--    <div class="dropdown-list-wrapper">-->
+<!--      <ul class="dropdown-list"></ul>-->
+<!--      <div class="floating-icon" aria-hidden="true"></div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<!---->
+<div class="dropdown-container">
+    <img src="{% static 'images/log.png' %}" id="log" style="position: relative; right: -50px;" alt="Logemy" width="40" height="44" class="d-inline-block align-text-top">&nbsp;
+    <a class="navbar-brand" href="{% url 'logemys:index' %}" style="font-size: 40px; color: red; font-family: 'Dancing Script', cursive; position: relative; right: -130px; top: -70px;">Logemy</a>
+  <button class="dropdown-button main-button">
+    <span class="dropdown-title-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="18px">
+        <path d="M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 2zM2.5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+      </svg>
+    </span>
+    <span class="dropdown-title text-truncate" style="color: yellow">Log</span>
+    <span class="dropdown-arrow">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+        <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+      </svg>
+    </span>
+  </button>
+  <div class="dropdown-list-container">
+    <div class="dropdown-list-wrapper" style="color: red !important;">
+      <ul class="dropdown-list">
+            <li class="dropdown-list-item">
+                <button class="dropdown-button list-button">
+                <a href="{%  url 'logemys:topics' %}" style="text-decoration: none; color: yellow"><span class="text-truncate">Topics</span></a>
+                </button>
+            </li>
+<!--            {% if user.is_authenticated %}-->
+            <span class="navbar-text">Hello, {{ user.username }}</span>
+            <li class="dropdown-list-item">
+                <button class="dropdown-button list-button">
+                <a href="{%  url 'users:logout' %}" style="text-decoration: none; color: yellow"><span class="text-truncate">Log out</span></a>
+                </button>
+            </li>
+<!--            {% else %}-->
+            <li class="dropdown-list-item">
+                <button class="dropdown-button list-button">
+                <a href="{%  url 'users:register' " style="text-decoration: none; color: yellow"><span class="text-truncate">Register</span></a>
+                </button>
+            </li>
+            <li class="dropdown-list-item">
+                <button class="dropdown-button list-button">
+                <a href="{%  url 'users:login' %}" style="text-decoration: none; color: yellow"><span class="text-truncate">Login</span></a>
+                </button>
+            </li>
+          {% endif %}
+          </ul>
+          <div class="floating-icon" aria-hidden="true"></div>
+    </div>
+  </div>
+</div>
+<script>
+const root = document.documentElement;
+const dropdownTitleIcon = document.querySelector(".dropdown-title-icon");
+const dropdownTitle = document.querySelector(".dropdown-title");
+const dropdownList = document.querySelector(".dropdown-list");
+const mainButton = document.querySelector(".main-button");
+const floatingIcon = document.querySelector(".floating-icon");
+
+const icons = {
+  topics:
+      "M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z M8 13A5 5 0 1 1 8 3a5 5 0 0 1 0 10zm0 1A6 6 0 1 0 8 2a6 6 0 0 0 0 12z M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8z M9.5 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z",
+  register:
+      "M14.778.085A.5.5 0 0 1 15 .5V8a.5.5 0 0 1-.314.464L14.5 8l.186.464-.003.001-.006.003-.023.009a12.435 12.435 0 0 1-.397.15c-.264.095-.631.223-1.047.35-.816.252-1.879.523-2.71.523-.847 0-1.548-.28-2.158-.525l-.028-.01C7.68 8.71 7.14 8.5 6.5 8.5c-.7 0-1.638.23-2.437.477A19.626 19.626 0 0 0 3 9.342V15.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 1 0v.282c.226-.079.496-.17.79-.26C4.606.272 5.67 0 6.5 0c.84 0 1.524.277 2.121.519l.043.018C9.286.788 9.828 1 10.5 1c.7 0 1.638-.23 2.437-.477a19.587 19.587 0 0 0 1.349-.476l.019-.007.004-.002h.001M14 1.221c-.22.078-.48.167-.766.255-.81.252-1.872.523-2.734.523-.886 0-1.592-.286-2.203-.534l-.008-.003C7.662 1.21 7.139 1 6.5 1c-.669 0-1.606.229-2.415.478A21.294 21.294 0 0 0 3 1.845v6.433c.22-.078.48-.167.766-.255C4.576 7.77 5.638 7.5 6.5 7.5c.847 0 1.548.28 2.158.525l.028.01C9.32 8.29 9.86 8.5 10.5 8.5c.668 0 1.606-.229 2.415-.478A21.317 21.317 0 0 0 14 7.655V1.222z",
+  login:
+      "M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z",
+};
+
+const listItems = ["Topics", "Register", "Log in"];
+
+const iconTemplate = (path) => {
+  return `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+      <path d="${path}" />
+    </svg>
+  `;
+};
+
+const listItemTemplate = (text, translateValue) => {
+  return `
+    <li class="dropdown-list-item">
+      <button class="dropdown-button list-button" data-translate-value="${translateValue}%">
+        <span class="text-truncate">${text}</span>
+      </button>
+    </li>
+  `;
+};
+
+const renderListItems = () => {
+  dropdownList.innerHTML += listItems
+    .map((item, index) => {
+      return listItemTemplate(item, 100 * index);
+    })
+    .join("");
+};
+
+window.addEventListener("load", () => {
+  renderListItems();
+});
+
+const setDropdownProps = (deg, ht, opacity) => {
+  root.style.setProperty("--rotate-arrow", deg !== 0 ? deg + "deg" : 0);
+  root.style.setProperty("--dropdown-height", ht !== 0 ? ht + "rem" : 0);
+  root.style.setProperty("--list-opacity", opacity);
+};
+
+mainButton.addEventListener("click", () => {
+  const listWrapperSizes = 3.5; // margins, paddings & borders
+  const dropdownOpenHeight = 4.6 * listItems.length + listWrapperSizes;
+  const currDropdownHeight =
+    root.style.getPropertyValue("--dropdown-height") || "0";
+
+  currDropdownHeight === "0"
+    ? setDropdownProps(180, dropdownOpenHeight, 1)
+    : setDropdownProps(0, 0, 0);
+});
+
+dropdownList.addEventListener("mouseover", (e) => {
+  const translateValue = e.target.dataset.translateValue;
+  root.style.setProperty("--translate-value", translateValue);
+});
+
+dropdownList.addEventListener("click", (e) => {
+  const clickedItemText = e.target.innerText.toLowerCase().trim();
+  const clickedItemIcon = icons[clickedItemText];
+
+  dropdownTitleIcon.innerHTML = iconTemplate(clickedItemIcon);
+  dropdownTitle.innerHTML = clickedItemText;
+  setDropdownProps(0, 0, 0);
+});
+
+dropdownList.addEventListener("mousemove", (e) => {
+  const iconSize = root.style.getPropertyValue("--floating-icon-size") || 0;
+  const x = e.clientX - dropdownList.getBoundingClientRect().x;
+  const y = e.clientY - dropdownList.getBoundingClientRect().y;
+  const targetText = e.target.innerText.toLowerCase().trim();
+  const hoverItemText = icons[targetText];
+
+  floatingIcon.innerHTML = iconTemplate(hoverItemText);
+  root.style.setProperty("--floating-icon-left", x - iconSize / 2 + "px");
+  root.style.setProperty("--floating-icon-top", y - iconSize / 2 + "px");
+});
+
+</script>
 </body>
 </html>

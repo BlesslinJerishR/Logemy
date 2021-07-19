@@ -96,3 +96,6 @@ def edit_entry(request, entry_id):
 
     context = {'entry': entry, 'topic': topic, 'form': form}
     return render(request, 'logemys/edit_entry.html', context)
+
+def css(request):
+    return render(request, 'base.html')

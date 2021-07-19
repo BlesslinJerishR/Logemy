@@ -2,6 +2,7 @@
 
 from django.urls import path
 from . import views
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 app_name = 'logemys'
 urlpatterns = [
@@ -17,4 +18,7 @@ urlpatterns = [
     path('new_entry/<int:topic_id>/', views.new_entry, name='new_entry'),
     # Edit Entry
     path('edit_entry/<int:entry_id>/', views.edit_entry, name='edit_entry'),
+    # Static css
+    path('', views.css)
 ]
+urlpatterns += staticfiles_urlpatterns()
