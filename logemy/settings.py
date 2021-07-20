@@ -21,9 +21,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-3abv-0)ek_pdt6z*!@t(lwidl+0^*var)0%93y+n)7x6h(5q=-'
-
+Debug = False
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
 
 ALLOWED_HOSTS = ['https://logemy.herokuapp.com/']
 
@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'logemys',
     'users',
     'bootstrap4',
-    # Default Django Apsps
+    # Default Django Apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
