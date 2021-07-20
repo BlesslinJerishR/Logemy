@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-3abv-0)ek_pdt6z*!@t(lwidl+0^*var)0%93y+n)7x6h(5q=-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['logemy.herokuapp.com', 'https://logemy.herokuapp.com',]
+ALLOWED_HOSTS = ['*,]
 
 
 # Application definition
