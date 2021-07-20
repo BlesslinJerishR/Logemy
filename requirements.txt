@@ -1,7 +1,7 @@
 dj-database-url==0.5.0
 Django==2.2
 django-bootstrap4==0.0.8
-django-heroku==0.3.1
+psycopg2-binary
 gunicorn==19.9.0
 pytz==2018.9
 sqlparse==0.3.0
