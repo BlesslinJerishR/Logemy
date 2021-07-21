@@ -27,7 +27,7 @@ def topics(request):
 @login_required
 def topic(request, topic_id):
     """One Topic"""
-    topic = Topic.objects.get(topic.id=topic_id)
+    topic = Topic.objects.get(id=topic_id)
     # Make sure the topic belongs to the current user
 
     entries = topic.entry_set.order_by('date_added')
