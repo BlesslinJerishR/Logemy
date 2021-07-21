@@ -16,13 +16,6 @@ def base(request):
     return render(request, 'logemys/base.html')
 
 
-def check_owner(topic, request):
-    global owner
-    global user
-    if topic.owner != request.user:
-        raise Http404
-
-
 @login_required
 def topics(request):
     """Show all topics"""
@@ -36,7 +29,8 @@ def topic(request, topic_id):
     """One Topic"""
     topic = get_object_or_404(Topic, id=topic_id)
     # Make sure the topic belongs to the current user
-    check_owner(topic, request)
+    if topic.owner != request.user:
+        raise Http404
     entries = topic.entry_set.order_by('-date_added')
     context = {'topic': topic, 'entries': entries}
     return render(request, 'logemys/topic.html', context)
@@ -45,7 +39,8 @@ def topic(request, topic_id):
 @login_required
 def new_topic(request):
     """Add new topic"""
-    check_owner(topic, request)
+    if topic.owner != request.user:
+        raise Http404
     if request.method != 'POST':
         # No data submitted, create a blank form
         form = TopicForm()
@@ -67,7 +62,8 @@ def new_topic(request):
 def new_entry(request, topic_id):
     """Add a new entry for a particular topic"""
     topic = Topic.objects.get(id=topic_id)
-    check_owner(topic, request)
+    if topic.owner != request.user:
+        raise Http404
     if request.method != 'POST':
         # No data submitted, create a blank form
         form = EntryForm()
@@ -89,7 +85,8 @@ def edit_entry(request, entry_id):
     """Editing an existing entry"""
     entry = Entry.objects.get(id=entry_id)
     topic = entry.topic
-    check_owner(topic, request)
+    if topic.owner != request.user:
+        raise Http404
     if request.method != 'POST':
         # Initial request; Pre fill the form with the current entry
         form = EntryForm(instance=entry)
