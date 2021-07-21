@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Topic, Entry
 from .forms import TopicForm, EntryForm
 from django.contrib.auth.decorators import login_required
@@ -8,7 +8,7 @@ from django.http import Http404
 # Create your views here.
 def index(request):
     """The home page for Learning Log."""
-    return render(request, 'learning_logs/index.html')
+    return render(request, 'logemys/index.html')
 
 
 def base(request):
@@ -16,8 +16,8 @@ def base(request):
     return render(request, 'logemys/base.html')
 
 
-def check_owner(owner, user):
-    if owner != user:
+def check_owner(topic, request):
+    if topic.owner != request.user:
         raise Http404
 
 
@@ -32,10 +32,10 @@ def topics(request):
 @login_required
 def topic(request, topic_id):
     """One Topic"""
-    topic = Topic.objects.get(id=topic_id)
+    topic = get_object_or_404(Topic, id=topic_id)
     # Make sure the topic belongs to the current user
-
-    entries = topic.entry_set.order_by('date_added')
+    check_owner(topic, request)
+    entries = topic.entry_set.order_by('-date_added')
     context = {'topic': topic, 'entries': entries}
     return render(request, 'logemys/topic.html', context)
 
@@ -43,7 +43,7 @@ def topic(request, topic_id):
 @login_required
 def new_topic(request):
     """Add new topic"""
-    check_owner(topic.owner, request.user)
+    check_owner(topic, request)
     if request.method != 'POST':
         # No data submitted, create a blank form
         form = TopicForm()
@@ -65,7 +65,7 @@ def new_topic(request):
 def new_entry(request, topic_id):
     """Add a new entry for a particular topic"""
     topic = Topic.objects.get(id=topic_id)
-    check_owner(topic.owner, request.user)
+    check_owner(topic, request)
     if request.method != 'POST':
         # No data submitted, create a blank form
         form = EntryForm()
@@ -74,7 +74,6 @@ def new_entry(request, topic_id):
         form = EntryForm(data=request.POST)
         if form.is_valid():
             new_entry = form.save(commit=False)
-            new_entry.owner = request.user
             new_entry.topic = topic
             new_entry.save()
             return redirect('logemys:topic', topic_id=topic_id)
@@ -88,7 +87,7 @@ def edit_entry(request, entry_id):
     """Editing an existing entry"""
     entry = Entry.objects.get(id=entry_id)
     topic = entry.topic
-    check_owner(topic.owner, request.user)
+    check_owner(topic, request)
     if request.method != 'POST':
         # Initial request; Pre fill the form with the current entry
         form = EntryForm(instance=entry)
@@ -101,7 +100,3 @@ def edit_entry(request, entry_id):
 
     context = {'entry': entry, 'topic': topic, 'form': form}
     return render(request, 'logemys/edit_entry.html', context)
-
-
-def css(request):
-    return render(request, 'base.html')
