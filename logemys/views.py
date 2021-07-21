@@ -17,6 +17,8 @@ def base(request):
 
 
 def check_owner(topic, request):
+    global owner
+    global user
     if topic.owner != request.user:
         raise Http404
 
