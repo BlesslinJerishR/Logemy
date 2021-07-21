@@ -13,7 +13,7 @@ def index(request):
 
 def base(request):
     """The Home poge for Logemys"""
-    return render(request, 'logemys/base.html')
+    return render(request, 'logemys/templates/logemys/base.html')
 
 
 def check_owner(topic, request):
