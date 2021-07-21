@@ -72,7 +72,7 @@ body {
 }
 
 button {
-  /*border: none !important;*/
+  border: none;
   cursor: pointer;
   /*!*background-color: transparent;*!*/
   outline: none !important;
