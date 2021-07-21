@@ -72,10 +72,10 @@ body {
 }
 
 button {
-  border: none;
+  border: none !important;
   cursor: pointer;
   /*!*background-color: transparent;*!*/
-  outline: none;
+  outline: none !important;
 }
 
 svg {
@@ -113,6 +113,7 @@ svg {
   font-size: 1.7rem;
   display: flex;
   align-items: center;
+  outline: none !important;
   padding: 0 1.8rem;
 }
 
@@ -129,6 +130,7 @@ svg {
 .dropdown-button:hover,
 .dropdown-button:focus {
   color: #000000;
+  outline: none !important;
 }
 
 .dropdown-button:hover svg,
@@ -143,17 +145,20 @@ svg {
   background-color: var(--primary-bg-color);
   border: 0.1rem solid var(--border-color);
   transition: all var(--transition-time) var(--transition-timing);
+  outline: none !important;
 }
 
 .main-button:focus {
   border: 0.1rem solid var(--primary-color);
   box-shadow: 0 0 0 0.2rem rgba(44, 98, 246, 0.4);
+  outline: none !important;
 }
 
 .main-button .dropdown-arrow {
   transition: transform var(--transition-time) var(--transition-timing);
   transform: rotate(var(--rotate-arrow));
   margin-left: 1.8rem;
+  outline: none !important;
 }
 
 .list-button {
