@@ -17,10 +17,10 @@
 <div class="dropdown-container">
     <img src="{% static 'images/hands.png' %}" id="log" style="position: relative; color: black; right: 4px; top: 18px;" alt="Logemy" width="100" height="90" class="d-inline-block align-text-top">&nbsp;
     <a class="navbar-brand" href="{% url 'logemys:index' %}" style="font-size: 40px !important; color: black !important; background-color: transparent !important; font-family: 'Tourney'; position: relative; right: -130px; top: -70px;">Logemy</a>
-    {% if user.is_authenticated %}
+<!--    {% if user.is_authenticated %}-->
     <h1 class="navbar-text" style="font-size: 23px !important; position: relative; top: -10px"><span style="color: #000000">Hello </span> <span style="color: #ffffff; background-color: #000000; border-radius: 7px;">&nbsp;&nbsp;{{ user.username }}&nbsp;&nbsp;</span></h1>
     <img src="{% static 'images/user.png' %}" height="30px" width="30px" style="position: relative; top: -50px; left: 65%">
-    {% endif %}
+<!--    {% endif %}-->
     <button class="dropdown-button main-button">
     <span class="dropdown-title-icon">
       <img src="{% static 'images/key.png' %}" width="22px" height="22px">
@@ -36,7 +36,7 @@
   <div class="dropdown-list-container">
     <div class="dropdown-list-wrapper">
       <ul class="dropdown-list">
-            {% if user.is_authenticated %}
+<!--            {% if user.is_authenticated %}-->
                 <li class="dropdown-list-item">
                     <button class="dropdown-button list-button" style="background-color: transparent !important;">
                     <a href="{%  url 'logemys:topics' %}" style="text-decoration: none; color: #000000"><span class="text-truncate">Topics</span></a>
@@ -48,7 +48,7 @@
                     </button>
                 </li>
                 <br>
-            {% else %}
+<!--            {% else %}-->
                 <li class="dropdown-list-item">
                     <button class="dropdown-button list-button" style="background-color: transparent !important;">
                     <a href="{%  url 'users:register' %}" style="text-decoration: none; color: #000000"><span class="text-truncate">Register</span></a>
@@ -59,7 +59,7 @@
                     <a href="{%  url 'users:login' %}" style="text-decoration: none; color: #000000"><span class="text-truncate">Login</span></a>
                     </button>
                 </li>
-            {% endif %}
+<!--            {% endif %}-->
             </ul>
             <div class="floating-icon" aria-hidden="true"></div>
     </div>
