@@ -27,7 +27,7 @@ def topics(request):
 @login_required
 def topic(request, topic_id):
     """One Topic"""
-    topic = Topic.objects.get(id=topic_id)
+    topic = Topic.objects.get(topic.id=topic_id)
     # Make sure the topic belongs to the current user
 
     entries = topic.entry_set.order_by('date_added')
@@ -38,7 +38,7 @@ def topic(request, topic_id):
 @login_required
 def new_topic(request):
     """Add new topic"""
-    topic = Topic.objects.get(id=topic_id)
+    topic = Topic.objects.get(topic.id=topic_id)
     if topic.owner != request.user:
         raise Http404
     if request.method != 'POST':
@@ -61,7 +61,7 @@ def new_topic(request):
 @login_required
 def new_entry(request, topic_id):
     """Add a new entry for a particular topic"""
-    topic = Topic.objects.get(id=topic_id)
+    topic = Topic.objects.get(topic.id=topic_id)
     if topic.owner != request.user:
         raise Http404
     if request.method != 'POST':
@@ -86,7 +86,7 @@ def edit_entry(request, entry_id):
     """Editing an existing entry"""
     entry = Entry.objects.get(id=entry_id)
     # topic = entry.topic
-    topic = Topic.objects.get(id=topic_id)
+    topic = Topic.objects.get(topic.id=topic_id)
     if topic.owner != request.user:
         raise Http404
     if request.method != 'POST':
