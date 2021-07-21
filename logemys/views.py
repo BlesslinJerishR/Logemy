@@ -8,7 +8,7 @@ from django.http import Http404
 # Create your views here.
 def index(request):
     """The home page for Learning Log."""
-    return render(request, 'learning_logs/index.html')
+    return render(request, 'logemys/index.html')
 
 
 def base(request):
