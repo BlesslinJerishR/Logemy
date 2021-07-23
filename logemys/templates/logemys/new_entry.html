@@ -8,7 +8,7 @@
 </head>
 <body>
 {% block content %}
-    <p><a href="{% url 'logemys:topic' topic.id%}">{{ topic }}</a> </p>
+    <p><a href="{% url 'logemys:topic' topic.id%}">{{ topic }}</a></p>
     <p>Add a new entry : </p>
     <form action="{% url 'logemys:new_entry' topic.id %}" method="post">
         {% csrf_token %}

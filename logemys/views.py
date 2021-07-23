@@ -49,7 +49,6 @@ def new_topic(request):
             new_topic.owner = request.user
             new_topic.save()
             return redirect('logemys:topics')
-
     # Display a blank or invalid form
     context = {'form': form}
     return render(request, 'logemys/new_topic.html', context)
@@ -58,6 +57,7 @@ def new_topic(request):
 @login_required
 def new_entry(request, topic_id):
     """Add a new entry for a particular topic"""
+    topic = Topic.objects.get(id=topic_id)
     if request.method != 'POST':
         # No data submitted, create a blank form
         form = EntryForm()

@@ -11,7 +11,7 @@
 <body>
 {% block content %}
   <p>Add a new topic : </p>
-  <form action="{% url 'logemys:new_topic' %}" method="POST">
+  <form action="{% url 'logemys:new_topic' %}" method="post">
     {% csrf_token %}
     {{ form.as_p}}
     <button name="submit">Add Topic</button>
