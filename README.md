@@ -11,29 +11,29 @@
 > Python
 >- Django
 >> 
->>Server
+>> - Server
 >> 
->>Manage
+>> - Manage
 >>
 >>>Migrate
 >>>
->>Admin
+>> - Admin
 >>
->>Apps
+>> - Apps
 >>
->>Urls
+>> - Urls
 >>
->>Models
+>> - Models
 >>
->>Views
+>> - Views
 >>
->>Templates
+>> - Templates
 >>
 >- SQLite 3
 >>
->>Migrations
+>> - Migrations
 >>
->>Shells
+>> - Shells
 >>
 
-##### Developer : Mastermindx33
+#### [ Developer : Mastermindx33  | Blesslin Jerish R]
