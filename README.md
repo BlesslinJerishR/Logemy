@@ -2,7 +2,7 @@
 
 ## Demo 
 
-- ![Demo](Demo/Logemy1.png)
+![Demo](Demo/Logemy1.png)
 
 ![Demo](Demo/Logemy2.png)
 ![Demo](Demo/Logemy3.png)
